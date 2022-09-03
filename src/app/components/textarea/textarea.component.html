@@ -1,0 +1,16 @@
+<section class="d-flex flex-column gap-3 mb-2">
+  <button
+    class="btn btn-primary col-11 col-md-8 col-lg-6 col-xl-4 mx-auto fw-bold text-light"
+    (click)="getData()"
+  >
+    Cargar Texto
+  </button>
+  <div class="col-12 col-md-10 col-lg-8 col-xl-6 mx-auto">
+    <textarea
+      class="form-control text-center"
+      *ngIf="data"
+      value="{{ data }}"
+      disabled readonly
+    ></textarea>
+  </div>
+</section>

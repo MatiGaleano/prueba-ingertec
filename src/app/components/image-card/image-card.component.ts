@@ -16,4 +16,9 @@ export class ImageCardComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  getPopUp(){
+    let popUp = window.open("/popup", this.data.name,  "width=800,height=400")
+    
+  }
+
 }

@@ -1,0 +1,9 @@
+.card {
+
+    &__image{
+        height: 15rem;
+        width: auto;
+        object-fit: cover;
+        cursor: pointer;
+    }
+}

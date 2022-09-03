@@ -1,8 +1,38 @@
 <div class="card">
-    <img [src]="data.image" [alt]="data.name" class="card-img-top" />
-    <div class="card-body">
-      <h3 >{{ data.name }}</h3>
-      <p class="text-dark">{{data.description}}</p>
-      <small class="text-muted"><span class="text-dark">Views:</span> {{ data.views }}</small>
+  <img
+    (click)="data.views = data.views + 1"
+    *ngIf="data.id % 2 == 0"
+    class="card-img-top card__image" 
+    [src]="data.image" 
+    [alt]="data.name" 
+    [attr.data-bs-target]="'#id' + data.id"
+    data-bs-toggle="modal" 
+    />
+    <img
+    (click)="getPopUp()"
+    *ngIf="data.id % 2 != 0"
+    class="card-img-top card__image" 
+    [src]="data.image" 
+    [alt]="data.name"
+    />
+  <div class="card-body">
+    <h3>{{ data.name }}</h3>
+    <p class="text-dark">{{ data.description }}</p>
+    <small class="text-muted"
+      ><span class="text-dark">Views:</span> {{ data.views }}</small
+    >
+  </div>
+</div>
+<div class="modal fade" [attr.id]="'id' + data.id" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{data.name}}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img [src]="data.image" [alt]="data.name" class="img-fluid"/>
+      </div>
     </div>
   </div>
+</div>
