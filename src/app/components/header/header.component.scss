@@ -1,0 +1,11 @@
+.fa-github {
+    display: flex;
+    align-items: center;
+    height: 2rem;
+    text-decoration: none;
+    transition: all 0.5s ease-out;
+    &:hover {
+      transform: scale(1.3);
+      color: #212121
+    }
+}

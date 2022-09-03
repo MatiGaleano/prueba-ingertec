@@ -1,9 +1,29 @@
-.card {
+@import "variables";
 
-    &__image{
-        height: 15rem;
-        width: auto;
-        object-fit: cover;
-        cursor: pointer;
+.card {
+  height: 27rem;
+  box-shadow: 5px 5px 10px 3px $color-shadow;
+  transition: all 0.5s ease;
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 10px 10px 20px 3px $color-shadow;
+  }
+  &--image {
+    height: 15rem;
+    width: auto;
+    object-fit: cover;
+    cursor: pointer;
+  }
+}
+
+.modal {
+  &--button{
+    transition: all 0.5s ease;
+    &:hover {
+      transform: scale(1.1);
     }
+    &:active {
+      transform: scale(0.9);
+    }
+  }
 }

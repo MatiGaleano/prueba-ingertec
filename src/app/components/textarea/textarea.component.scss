@@ -1,3 +1,20 @@
-textarea{
+@import "variables";
+
+.section {
+  &--button {
+    transition: all 0.5s ease;
+    &:hover {
+      transform: scale(1.1);
+    }
+    &:active {
+      transform: scale(0.9);
+    }
+  }
+
+  &--textarea {
     resize: none;
+    box-shadow: 5px 5px 10px 3px $color-shadow;
+    background: $color-white;
+    padding: 1rem 0 .5rem;
+  }
 }

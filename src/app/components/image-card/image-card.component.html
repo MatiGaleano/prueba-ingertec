@@ -1,26 +1,18 @@
-<div class="card">
+<div class="card mb-3">
   <img
-    (click)="data.views = data.views + 1"
-    *ngIf="data.id % 2 == 0"
-    class="card-img-top card__image" 
+    (click)="data.id%2==0? data.views = data.views + 1 : data.views"
+    class="card-img-top card--image" 
     [src]="data.image" 
     [alt]="data.name" 
     [attr.data-bs-target]="'#id' + data.id"
     data-bs-toggle="modal" 
     />
-    <img
-    (click)="getPopUp()"
-    *ngIf="data.id % 2 != 0"
-    class="card-img-top card__image" 
-    [src]="data.image" 
-    [alt]="data.name"
-    />
   <div class="card-body">
     <h3>{{ data.name }}</h3>
     <p class="text-dark">{{ data.description }}</p>
-    <small class="text-muted"
-      ><span class="text-dark">Views:</span> {{ data.views }}</small
-    >
+  </div>
+  <div class="card-footer text-end">
+    <small class="text-muted"><span class="text-dark">Views:</span> {{ data.views }} <i class="fa-solid fa-eye"></i></small>
   </div>
 </div>
 <div class="modal fade" [attr.id]="'id' + data.id" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
@@ -32,6 +24,10 @@
       </div>
       <div class="modal-body">
         <img [src]="data.image" [alt]="data.name" class="img-fluid"/>
+      </div>
+      <div class="modal-footer d-flex justify-content-center" *ngIf="data.id % 2 != 0">
+        <button type="button" class="btn btn-primary col-5 text-light fw-bold modal--button" (click)="viewIncreace()">Ok <i class="fa-regular fa-eye"></i></button>
+        <button type="button" class="btn btn-secondary col-5 text-light fw-bold modal--button" data-bs-dismiss="modal">Close <i class="fa-solid fa-power-off login__icon"></i></button>
       </div>
     </div>
   </div>

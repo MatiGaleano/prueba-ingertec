@@ -4,21 +4,18 @@ import { Animal } from 'src/assets/animal-data';
 @Component({
   selector: 'app-image-card',
   templateUrl: './image-card.component.html',
-  styleUrls: ['./image-card.component.scss']
+  styleUrls: ['./image-card.component.scss'],
 })
 export class ImageCardComponent implements OnInit {
+  @Input() data!: Animal;
 
-  @Input() data!: Animal
-  
+  constructor() {}
 
-  constructor() { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
+  viewIncreace() {
+    if (this.data.id % 2 != 0) {
+      this.data.views += 1;
+    }
   }
-
-  getPopUp(){
-    let popUp = window.open("/popup", this.data.name,  "width=800,height=400")
-    
-  }
-
 }

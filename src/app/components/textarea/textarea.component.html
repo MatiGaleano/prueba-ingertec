@@ -1,16 +1,18 @@
-<section class="d-flex flex-column gap-3 mb-2">
+<section class="d-flex flex-column gap-3 mb-2 section">
   <button
-    class="btn btn-primary col-11 col-md-8 col-lg-6 col-xl-4 mx-auto fw-bold text-light"
+    class="btn btn-primary col-11 col-md-8 col-lg-6 col-xl-4 mx-auto fw-bold text-light section--button"
     (click)="getData()"
   >
-    Cargar Texto
+    Cargar Texto <i class="fa-regular fa-file-lines"></i>
   </button>
   <div class="col-12 col-md-10 col-lg-8 col-xl-6 mx-auto">
     <textarea
-      class="form-control text-center"
+      [@enterAnimation]
+      class="form-control text-center section--textarea"
       *ngIf="data"
       value="{{ data }}"
-      disabled readonly
+      disabled
+      readonly
     ></textarea>
   </div>
 </section>

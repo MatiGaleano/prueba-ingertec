@@ -1,0 +1,25 @@
+CREATE TABLE ``tresource_type` ( `idResourceType` INT NOT NULL AUTO_INCREMENT , `created` DATETIME NOT NULL , `descrip` VARCHAR(200) NOT NULL , PRIMARY KEY (`idResourceType`)) ENGINE = InnoDB;
+
+CREATE TABLE ``tresource` ( `idResource` INT NOT NULL AUTO_INCREMENT , `created` DATETIME NOT NULL , `descrip` VARCHAR(200) NOT NULL , `idResourceType` INT NOT NULL , PRIMARY KEY (`idResource`), INDEX `idResourceType` (`idResourceType`)) ENGINE = InnoDB;
+
+INSERT INTO `tresource_type`(`created`, `descrip`) VALUES ('2022-09-02 18:56','Video')
+
+INSERT INTO `tresource_type`(`created`, `descrip`) VALUES ('2022-09-02 18:56','PDF Enunciado')
+
+INSERT INTO `tresource_type`(`created`, `descrip`) VALUES ('2022-09-02 18:56','PDF Enunciado')
+
+INSERT INTO `tresource_type`(`created`, `descrip`) VALUES ('2022-09-02 18:56','PDF Solución')
+
+INSERT INTO `tresource`(`created`, `descrip`, `idResourceType`) VALUES ('2022-09-02 18:56','Primer Video','1')
+
+INSERT INTO `tresource`(`created`, `descrip`, `idResourceType`) VALUES ('2022-09-02 18:56','Segundo Video','1')
+
+INSERT INTO `tresource`(`created`, `descrip`, `idResourceType`) VALUES ('2022-09-02 19:02','Documentacion','2')
+
+INSERT INTO `tresource`(`created`, `descrip`, `idResourceType`) VALUES ('2022-09-02 19:02','Enunciado','3')
+
+INSERT INTO `tresource`(`created`, `descrip`, `idResourceType`) VALUES ('2022-09-02 19:02','Primera Solución','4')
+
+INSERT INTO `tresource`(`created`, `descrip`, `idResourceType`) VALUES ('2022-09-02 19:02','Segunda Solución','4')
+
+SELECT tresource.idResource, COUNT(*) FROM tresource GROUP BY tresource.idResourceType
